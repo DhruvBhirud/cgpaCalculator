@@ -53,6 +53,7 @@ function calcCGPA() {
     cgpa = cgpa.toFixed(2);
 
     // Calculating grade & percentage
+  // Calculating grade & percentage
   if(cgpa < 4){
     grade = "F";
     per = "NA";
@@ -60,30 +61,37 @@ function calcCGPA() {
   else if(cgpa < 4.75){
     grade = "D";
     per = 6.6*cgpa + 13.6;
+    per.toFixed(2);
   }
   else if(cgpa < 5.25){
     grade = "C";
     per = 10*cgpa - 2.5;
+    per.toFixed(2);
   }
   else if(cgpa < 5.75){
     grade = "B";
-    per = 10*cgpa - 2.5
+    per = 10*cgpa - 2.5;
+    per.toFixed(2);
   }
   else if(cgpa < 6.75){
     grade = "B+";
     per = 5*cgpa + 26.5;
+    per.toFixed(2);
   }
   else if(cgpa < 8.25){
     grade = "A";
     per = 10*cgpa - 7.5;
+    per.toFixed(2);
   }
   else if(cgpa < 9.5){
     grade = "A+";
     per = 12*cgpa - 25;
+    per.toFixed(2);
   }
   else{
     grade = "O";
     per = 20*cgpa - 100;
+    per.toFixed(2);
   }
   
   // Calculating class
@@ -153,53 +161,60 @@ function calcDseCGPA() {
     cgpa = cgpa.toFixed(2);
 
     // Calculating grade & percentage
-  if(cgpa < 4){
-    grade = "F";
-    per = "NA";
-  }
-  else if(cgpa < 4.75){
-    grade = "D";
-    per = 6.6*cgpa + 13.6;
-  }
-  else if(cgpa < 5.25){
-    grade = "C";
-    per = 10*cgpa - 2.5;
-  }
-  else if(cgpa < 5.75){
-    grade = "B";
-    per = 10*cgpa - 2.5
-  }
-  else if(cgpa < 6.75){
-    grade = "B+";
-    per = 5*cgpa + 26.5;
-  }
-  else if(cgpa < 8.25){
-    grade = "A";
-    per = 10*cgpa - 7.5;
-  }
-  else if(cgpa < 9.5){
-    grade = "A+";
-    per = 12*cgpa - 25;
-  }
-  else{
-    grade = "O";
-    per = 20*cgpa - 100;
-  }
+    if(cgpa < 4){
+      grade = "F";
+      per = "NA";
+    }
+    else if(cgpa < 4.75){
+      grade = "D";
+      per = 6.6*cgpa + 13.6;
+      per.toFixed(2);
+    }
+    else if(cgpa < 5.25){
+      grade = "C";
+      per = 10*cgpa - 2.5;
+      per.toFixed(2);
+    }
+    else if(cgpa < 5.75){
+      grade = "B";
+      per = 10*cgpa - 2.5;
+      per.toFixed(2);
+    }
+    else if(cgpa < 6.75){
+      grade = "B+";
+      per = 5*cgpa + 26.5;
+      per.toFixed(2);
+    }
+    else if(cgpa < 8.25){
+      grade = "A";
+      per = 10*cgpa - 7.5;
+      per.toFixed(2);
+    }
+    else if(cgpa < 9.5){
+      grade = "A+";
+      per = 12*cgpa - 25;
+      per.toFixed(2);
+    }
+    else{
+      grade = "O";
+      per = 20*cgpa - 100;
+      per.toFixed(2);
+    }
+    
+    // Calculating class
+    if(cgpa < 4)
+      cls = "Fail";
+    else if(cgpa < 5.5)
+      cls = "Pass";
+    else if(cgpa < 6.25)
+      cls = "Second Class"
+    else if(cgpa < 6.75)
+      cls = "Higher Second Class";
+    else if(cgpa < 7.75)
+      cls = "First Class";
+    else
+      cls = "First Class with Distinction";
   
-  // Calculating class
-  if(cgpa < 4)
-    cls = "Fail";
-  else if(cgpa < 5.5)
-    cls = "Pass";
-  else if(cgpa < 6.25)
-    cls = "Second Class"
-  else if(cgpa < 6.75)
-    cls = "Higher Second Class";
-  else if(cgpa < 7.75)
-    cls = "First Class";
-  else
-    cls = "First Class with Distinction";
-
   // Filling the output table
   document.getElementById("op_cgpa").innerHTML = cgpa;
   document.getElementById("op_grade").innerHTML = grade;
