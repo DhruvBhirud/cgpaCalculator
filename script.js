@@ -10,6 +10,9 @@ function calcCGPA() {
     }
 
     var fesgpa = Number(fesgpa);
+    var sesgpa = Number(sesgpa);
+    var tesgpa = Number(tesgpa);
+    var besgpa = Number(besgpa);
     var grade;
     var per;
     var cls;
@@ -47,6 +50,106 @@ function calcCGPA() {
 
     //Calculating CGPA
     cgpa = ((fesgpa * 44)+(sesgpa * 44)+(tesgpa * 42)+(besgpa * 40))/170;
+    cgpa = cgpa.toFixed(2);
+
+    // Calculating grade & percentage
+  if(cgpa < 4){
+    grade = "F";
+    per = "NA";
+  }
+  else if(cgpa < 4.75){
+    grade = "D";
+    per = 6.6*cgpa + 13.6;
+  }
+  else if(cgpa < 5.25){
+    grade = "C";
+    per = 10*cgpa - 2.5;
+  }
+  else if(cgpa < 5.75){
+    grade = "B";
+    per = 10*cgpa - 2.5
+  }
+  else if(cgpa < 6.75){
+    grade = "B+";
+    per = 5*cgpa + 26.5;
+  }
+  else if(cgpa < 8.25){
+    grade = "A";
+    per = 10*cgpa - 7.5;
+  }
+  else if(cgpa < 9.5){
+    grade = "A+";
+    per = 12*cgpa - 25;
+  }
+  else{
+    grade = "O";
+    per = 20*cgpa - 100;
+  }
+  
+  // Calculating class
+  if(cgpa < 4)
+    cls = "Fail";
+  else if(cgpa < 5.5)
+    cls = "Pass";
+  else if(cgpa < 6.25)
+    cls = "Second Class"
+  else if(cgpa < 6.75)
+    cls = "Higher Second Class";
+  else if(cgpa < 7.75)
+    cls = "First Class";
+  else
+    cls = "First Class with Distinction";
+
+  // Filling the output table
+  document.getElementById("op_cgpa").innerHTML = cgpa;
+  document.getElementById("op_grade").innerHTML = grade;
+  document.getElementById("op_per").innerHTML = per;
+  document.getElementById("op_class").innerHTML = cls;
+}
+
+function calcDseCGPA() {
+    //checking if the user has entered all the required fields
+    var sesgpa = document.getElementById("sgpa_input_se").value;
+    var tesgpa = document.getElementById("sgpa_input_te").value;
+    var besgpa = document.getElementById("sgpa_input_be").value;
+    if (sesgpa == "" || tesgpa == "" || besgpa == "") {
+        document.getElementById("error_msg").innerHTML = "Please enter values in all the fields";
+        return;
+    }
+
+    var sesgpa = Number(sesgpa);
+    var tesgpa = Number(tesgpa);
+    var besgpa = Number(besgpa);
+    var grade;
+    var per;
+    var cls;
+    var cgpa;
+
+    //validating range of sgpa
+    if (sesgpa < 0 || sesgpa > 10) {
+        document.getElementById("error_msg").innerHTML = "Enter valid SGPA (i.e. between 0 & 10)";
+        return;
+    }
+    else {
+        document.getElementById("error_msg").innerHTML = "";
+    }
+    if (tesgpa < 0 || tesgpa > 10) {
+        document.getElementById("error_msg").innerHTML = "Enter valid SGPA (i.e. between 0 & 10)";
+        return;
+    }
+    else {
+        document.getElementById("error_msg").innerHTML = "";
+    }
+    if (besgpa < 0 || besgpa > 10) {
+        document.getElementById("error_msg").innerHTML = "Enter valid SGPA (i.e. between 0 & 10)";
+        return;
+    }
+    else {
+        document.getElementById("error_msg").innerHTML = "";
+    }
+
+    //Calculating CGPA
+    cgpa = ((sesgpa * 44)+(tesgpa * 42)+(besgpa * 40))/126;
     cgpa = cgpa.toFixed(2);
 
     // Calculating grade & percentage

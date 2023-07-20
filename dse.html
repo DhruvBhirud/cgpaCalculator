@@ -19,9 +19,6 @@
                   Enter Details (SGPA):
                 </div>
                 <div class="input_box">
-                  <input id="sgpa_input_fe" type="number" min="0.00" max="10.00" step="0.01" placeholder="FE">
-                </div>
-                <div class="input_box">
                     <input id="sgpa_input_se" type="number" min="0.00" max="10.00" step="0.01" placeholder="SE">
                   </div>
                   <div class="input_box">
@@ -31,7 +28,7 @@
                     <input id="sgpa_input_be" type="number" min="0.00" max="10.00" step="0.01" placeholder="BE">
                   </div>
                 <div class="input_button">
-                  <button id="calc_btn" type="button" onclick="calcCGPA()">Calculate</button>
+                  <button id="calc_btn" type="button" onclick="calcDseCGPA()">Calculate</button>
                 </div>
               </div>
               <div id="error_msg"></div>
@@ -57,9 +54,6 @@
               </div>
               <div class="download_button">
                 <button onclick="exportTableToExcel('opTable')">Download as Excel File</button>
-              </div>
-              <div>
-                <a href="dse.html">DSE CGPA Calculator</a>
               </div>
             </div>
             </div>
